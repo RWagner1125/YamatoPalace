@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background: #090009;
+  overflow-x: hidden;
+}
+
+/* Faded Yamato Palace background */
+.background-layer {
+  position: fixed;
+  inset: 0;
+  background: url("images/yamato-palace-bg.png") center center / cover no-repeat;
+  opacity: 0.28;
+  filter: brightness(0.6) blur(1px);
+  z-index: -3;
+}
+
+/* Flashing pink neon overlay */
+.pink-glow-layer {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 0, 200, 0.35), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(255, 80, 220, 0.25), transparent 35%),
+    linear-gradient(135deg, rgba(20, 0, 25, 0.8), rgba(255, 0, 180, 0.25), rgba(10, 0, 20, 0.85));
+  background-size: 200% 200%;
+  animation: neonPulse 4s ease-in-out infinite alternate;
+  z-index: -2;
+}
+
+/* Header */
+.main-header {
+  width: 100%;
+  min-height: 85px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 0, 180, 0.25);
+  border-bottom: 2px solid #ff8bea;
+  box-shadow:
+    0 0 12px #ff8bea,
+    0 0 30px #ff00c8,
+    0 0 55px #ff4fd8;
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 10;
+}
+
+.site-name {
+  font-size: 1.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 5px white,
+    0 0 15px #ff7be9,
+    0 0 35px #ff00c8;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-shadow:
+    0 0 5px white,
+    0 0 15px #ff8bea,
+    0 0 30px #ff00c8;
+  transition: 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 0 10px #ff8bea,
+    0 0 25px #ff00c8;
+}
+
+/* Hero front page */
+.hero-section {
+  min-height: calc(100vh - 85px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 25px;
+}
+
+.title-panel {
+  max-width: 950px;
+  text-align: center;
+  padding: 35px;
+  border-radius: 28px;
+  background: rgba(20, 0, 30, 0.62);
+  border: 2px solid rgba(255, 139, 234, 0.9);
+  box-shadow:
+    0 0 15px #ff8bea,
+    0 0 35px #ff00c8,
+    inset 0 0 25px rgba(255, 0, 200, 0.25);
+  backdrop-filter: blur(5px);
+}
+
+.title-image {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 22px;
+  border: 2px solid #ff8bea;
+  box-shadow:
+    0 0 12px #ff8bea,
+    0 0 30px #ff00c8;
+  margin-bottom: 25px;
+}
+
+.intro-text {
+  max-width: 750px;
+  margin: 0 auto 30px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #ffd6f7;
+  text-shadow: 0 0 8px #ff00c8;
+}
+
+.enter-button {
+  display: inline-block;
+  padding: 14px 34px;
+  border-radius: 30px;
+  background: #ff00c8;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 12px #ff00c8,
+    0 0 30px #ff7be9;
+  transition: 0.3s ease;
+}
+
+.enter-button:hover {
+  transform: scale(1.08);
+  background: #ff7be9;
+  box-shadow:
+    0 0 15px white,
+    0 0 35px #ff00c8,
+    0 0 60px #ff7be9;
+}
+
+/* Gallery */
+.gallery-section {
+  padding: 80px 40px;
+  background: rgba(5, 0, 10, 0.72);
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-section h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 45px;
+  text-shadow:
+    0 0 8px white,
+    0 0 20px #ff7be9,
+    0 0 45px #ff00c8;
+}
+
+.gallery-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.gallery-card {
+  background: rgba(25, 0, 35, 0.78);
+  border: 2px solid #ff8bea;
+  border-radius: 22px;
+  padding: 18px;
+  text-align: center;
+  box-shadow:
+    0 0 12px #ff8bea,
+    0 0 28px #ff00c8;
+  transition: 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 0 15px white,
+    0 0 35px #ff00c8,
+    0 0 65px #ff7be9;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 18px;
+}
+
+.gallery-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+  text-shadow:
+    0 0 8px #fff,
+    0 0 18px #ff00c8;
+}
+
+.gallery-card p {
+  color: #ffd6f7;
+  line-height: 1.5;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: rgba(255, 0, 180, 0.22);
+  border-top: 2px solid #ff8bea;
+  color: #ffd6f7;
+  text-shadow: 0 0 8px #ff00c8;
+}
+
+/* Animation */
+@keyframes neonPulse {
+  0% {
+    opacity: 0.78;
+    background-position: 0% 50%;
+    filter: brightness(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    background-position: 100% 50%;
+    filter: brightness(1.25);
+  }
+
+  100% {
+    opacity: 0.88;
+    background-position: 50% 100%;
+    filter: brightness(1);
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .site-name {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .title-panel {
+    padding: 20px;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  .gallery-section h2 {
+    font-size: 2.2rem;
+  }
+}
